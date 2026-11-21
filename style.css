@@ -1,0 +1,113 @@
+/* ---------- Tokens ---------- */
+:root{
+  --ink:#0E2A3B;
+  --ink-soft:#4A5F6C;
+  --paper:#F3F6F8;
+  --white:#FFFFFF;
+  --cyan:#0F8FA0;
+  --magenta:#C2255C;
+  --line:#D5DEE4;
+  --radius:10px;
+  --font-head:'Sora','Segoe UI',Arial,sans-serif;
+  --font-body:'Source Sans 3','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-size:1.08rem;line-height:1.65;color:var(--ink);background:var(--paper);min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+img{max-width:100%;display:block}
+a{color:var(--cyan)}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,6vw,3.6rem)}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:1rem}
+h3{font-size:1.2rem;margin-bottom:.4rem}
+p{max-width:65ch}
+.container{width:min(1100px,92%);margin-inline:auto}
+section{padding:3.5rem 0}
+
+/* ---------- Header + navigation ---------- */
+header{background:var(--ink);color:var(--white);position:sticky;top:0;z-index:10;border-bottom:4px solid var(--cyan)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+.brand{font-family:var(--font-head);font-weight:700;font-size:1.15rem;color:var(--white);text-decoration:none}
+.brand span{color:#F58AB0}
+nav ul{display:flex;gap:.3rem;list-style:none}
+nav a{color:#DCE7EE;text-decoration:none;padding:.5rem .9rem;border-radius:6px;font-weight:600}
+nav a:hover{background:rgba(255,255,255,.12)}
+nav a[aria-current="page"]{background:var(--white);color:var(--ink)}
+.menu-btn{display:none;background:none;border:2px solid #DCE7EE;color:var(--white);padding:.35rem .8rem;border-radius:6px;font:inherit;font-weight:600;cursor:pointer}
+
+/* ---------- Home ---------- */
+.hero{padding:4rem 0 3rem}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.hero .role{color:var(--magenta);font-weight:700;margin-bottom:.6rem}
+.hero p.intro{font-size:1.2rem;margin:1.2rem 0 1.8rem;color:var(--ink-soft)}
+.photo-frame{position:relative;width:min(340px,80%);margin-inline:auto}
+.photo-frame::before{content:"";position:absolute;inset:14px -14px -14px 14px;border-radius:50%;background:conic-gradient(var(--cyan),var(--magenta),#F2C230,var(--cyan));z-index:0}
+.photo-frame img{position:relative;z-index:1;width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--paper);background:var(--line)}
+.btn{display:inline-block;padding:.75rem 1.5rem;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid var(--ink);margin-right:.6rem;margin-bottom:.6rem;font-family:var(--font-body);font-size:1rem;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--white)}
+.btn.primary:hover{background:var(--magenta);border-color:var(--magenta)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--white)}
+
+/* ---------- Page titles ---------- */
+.page-title{background:var(--white);border-bottom:1px solid var(--line);padding:3rem 0 2.2rem}
+.page-title p{color:var(--ink-soft);margin-top:.6rem}
+
+/* ---------- About ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}
+.timeline{list-style:none;border-left:3px solid var(--cyan);padding-left:1.2rem}
+.timeline li{margin-bottom:1.2rem}
+.timeline strong{display:block}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.tags li{border:2px solid var(--line);border-radius:999px;padding:.2rem .9rem;font-weight:600;background:var(--white)}
+
+/* ---------- Skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.skill{margin-bottom:1.1rem}
+.skill-top{display:flex;justify-content:space-between;font-weight:600;margin-bottom:.3rem}
+.meter{height:10px;background:var(--line);border-radius:999px;overflow:hidden}
+.meter span{display:block;height:100%;background:var(--cyan);border-radius:999px}
+.meter.pink span{background:var(--magenta)}
+.soft-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;list-style:none}
+.soft-list li{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1rem}
+.soft-list .icon{font-size:1.6rem;display:block}
+
+/* ---------- Projects ---------- */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.8rem}
+.project{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:160px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--font-head);font-size:1.4rem;font-weight:700}
+.t1{background:linear-gradient(135deg,var(--ink),var(--cyan))}
+.t2{background:linear-gradient(135deg,var(--magenta),#F2C230)}
+.t3{background:linear-gradient(135deg,var(--cyan),var(--magenta))}
+.project-body{padding:1.3rem;flex:1}
+.project-body p{margin-bottom:.9rem}
+.tools{font-size:.95rem;color:var(--ink-soft)}
+.tools strong{color:var(--ink)}
+
+/* ---------- Contact ---------- */
+form label{display:block;font-weight:600;margin:1rem 0 .3rem}
+form input,form textarea{width:100%;padding:.75rem;border:2px solid var(--line);border-radius:8px;font:inherit;background:var(--white);color:var(--ink)}
+form input:focus,form textarea:focus{border-color:var(--cyan);outline:none}
+form textarea{min-height:150px;resize:vertical}
+.form-msg{margin-top:1rem;font-weight:600}
+.contact-list{list-style:none}
+.contact-list li{margin-bottom:.9rem}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:#C5D4DE;padding:1.6rem 0;margin-top:auto;font-size:.98rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+footer a{color:#F58AB0}
+
+/* ---------- Responsive ---------- */
+@media (max-width:820px){
+  .hero-grid,.two-col{grid-template-columns:1fr}
+  .photo-frame{order:-1;width:min(240px,70%)}
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);flex-direction:column;padding:.6rem 4%;border-bottom:4px solid var(--cyan)}
+  nav ul.open{display:flex}
+  header .container{position:relative}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
